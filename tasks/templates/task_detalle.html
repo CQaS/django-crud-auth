@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{task.title}}</h1>
+{{err}}
+<form method="post">
+    {% csrf_token %}
+
+    {{form.as_p}}
+    <button>
+        Actualizar
+    </button>
+</form>
+<br>
+<hr>
+
+<form action="{% url 'completa_task' task.id %}" method="post">
+    {% csrf_token %}
+    <button class="btn btn-primary">
+        Completar la tarea Nro:<span class="badge bg-primary">{{task.id}}</span>
+    </button>
+</form>
+
+<br>
+
+<form action="{% url 'delete_task' task.id %}" method="post">
+    {% csrf_token %}
+    <button class="btn btn-primary">
+        Eliminar la tarea Nro:<span class="badge bg-primary">{{task.id}}</span>
+    </button>
+</form>
+
+{% endblock %}

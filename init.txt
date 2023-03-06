@@ -1,0 +1,34 @@
+py -m venv venv
+pip intall django
+
+django-admin startproject djangocrud .
+python manage.py runserver
+
+python manage.py startapp tasks
+
+python manage.py migrate
+
+creaTablaNuevas
+python manage.py makemigrations
+
+
+python manage.py createsuperuser
+
+
+desplegar en render.com:
+
+Guia
+https://render.com/docs/deploy-django
+
+pip install dj-database-url
+pip install psycopg2-binary
+pip install whitenoise[brotli]
+
+
+en terminal git bash:
+chmod a+x build.sh
+
+
+pip install gunicorn
+
+pip freeze > requirements.txt

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>TASKS PENDIENTES</h1>
+
+<!-- Some borders are removed -->
+<ul class="list-group list-group-flush">
+    {% for t in tasks %}
+
+    <li class="list-group-item">
+        <a href="{% url 'task_detalle' t.id %}">
+            {% if t.importante %}
+            <h1>{{t.title}}</h1>
+            {% else %}
+            {{t.title}}
+            {% endif %}
+            <p>{{t.descripcion}}</p>
+            <p>{{t.user.username}}</p>
+            <h4>{{t.completo|date:'M j Y:i'}}</h4>
+        </a>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}
